@@ -1,0 +1,17 @@
+<section class="listing">
+  <div class="carousel">
+    <img
+      class="listing-photo"
+      [src]="this.productService.getImageUrl(product.images[currentImageIndex].imagePath)"
+      alt="Image of {{ product.name }}"
+    />
+    <ng-template #noImage>
+      <p>No images available for this product.</p>
+    </ng-template>
+    <button class="carousel-button prev" (click)="previousImage()">&#10094;</button>
+    <button class="carousel-button next" (click)="nextImage()">&#10095;</button>
+  </div>
+  <h2 class="listing-heading">{{ product.name }}</h2>
+  <a [routerLink]="['/details', product.id]">Learn More</a>
+</section>
+

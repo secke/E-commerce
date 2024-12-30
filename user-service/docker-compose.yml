@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  spring-app:
+    build: .
+    ports:
+      - "8089:8089"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
+      - SPRING_DATA_MONGODB_DATABASE=user_service_db
+
+      # Add these for better Eureka integration
+      - SPRING_APPLICATION_NAME=user-service
+
+    depends_on:
+      - mongodb
+    networks:
+      - spring-mongo-network
+      - microservices-network
+
+  mongodb:
+    image: mongo:latest
+
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - spring-mongo-network
+
+networks:
+  spring-mongo-network:
+    driver: bridge
+  microservices-network:
+    external: true
+
+volumes:
+  mongodb_data:

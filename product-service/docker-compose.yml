@@ -1,0 +1,33 @@
+# version: '3.8'
+
+services:
+  spring-app:
+    build: .
+    ports:
+      - "8090:8090"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS:kafka:9092
+      - SPRING_APPLICATION_NAME=product-service
+    depends_on:
+      - mongodb
+    networks:
+      - spring-mongo-network
+      - microservices-network
+
+  mongodb:
+    image: mongo:latest
+
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - spring-mongo-network
+
+networks:
+  spring-mongo-network:
+    driver: bridge
+  microservices-network:
+    external: true
+
+volumes:
+  mongodb_data:

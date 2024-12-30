@@ -1,0 +1,13 @@
+<main>
+    <header class="brand-name">
+        <a [routerLink]="['/']">
+            <img class="brand-logo" src="/assets/shopping.png" alt="logo" aria-hidden="true" />
+        </a>
+        <a (click)="handleUserLogoClick()">
+            <img class="user-logo" src="/assets/ui.png" alt="logo" aria-hidden="true" />
+        </a>
+    </header>
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+</main>

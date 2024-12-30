@@ -1,0 +1,29 @@
+<article class="details-container">
+    <div class="carousel">
+        <img
+          class="listing-photo"
+          *ngIf="product != undefined"
+          [src]="this.productService.getImageUrl(product.images[this.currentImageIndex].imagePath)"
+          alt="Exterior photo of {{ product.name }}"
+          crossorigin
+        />
+        <ng-template #noImage>
+            <p>No images available for this product.</p>
+        </ng-template>
+        <button class="carousel-button prev" *ngIf="product != undefined" (click)="previousImage()">&#10094;</button>
+        <button class="carousel-button next" *ngIf="product != undefined" (click)="nextImage()">&#10095;</button>
+    </div>
+    <section class="details-text">
+      <h2 class="listing-heading">{{ product?.name }}</h2>
+      <p class="listing-location">{{ product?.description }}</p>
+    </section>
+    <section class="listing-features">
+      <h2 class="section-heading">About this product</h2>
+      <ul>
+        <li>Total quantity: {{ product?.quantity }}</li>
+        <li>The price: {{ product?.price }}</li>
+      </ul>
+    </section>
+  </article>
+  
+  

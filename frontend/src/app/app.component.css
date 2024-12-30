@@ -1,0 +1,58 @@
+:host {
+    --content-padding: 10px;
+  }
+  /* header {
+    display: block;
+    height: 60px;
+    padding: var(--content-padding);
+    box-shadow: 0px 5px 25px var(--shadow-color);
+  } */
+  .content {
+    padding: var(--content-padding);
+  }
+  
+/* .brand-logo {
+    width: 5%;
+    height: auto;
+} */
+
+section.content{
+    background: #b5b5b5;
+}
+header.brand-name {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Vertically center items */
+    padding: 0 20px; /* Add some padding */
+    background-color: #b9050b; /* Optional background color */
+    height: 80px; /* Optional fixed height */
+    border-bottom: 1px solid #ddd; /* Optional border for separation */
+    padding: var(--content-padding);
+    box-shadow: 0px 5px 25px var(--shadow-color);
+  }
+  
+  .brand-logo {
+    height: 50px; /* Adjust the height of the logo */
+    object-fit: contain; /* Maintain the aspect ratio */
+  }
+  
+  .user-logo {
+    height: 40px; /* Adjust the height of the user logo */
+    object-fit: contain; /* Maintain the aspect ratio */
+  }
+  .user-logo:hover{
+    cursor: pointer;
+    transform: rotate(5deg);
+    transition: transform 0.3s ease;
+  }
+  @media (max-width: 768px) {
+    header.brand-name {
+      padding: 0 10px; /* Reduce padding on smaller screens */
+    }
+  
+    .brand-logo,
+    .user-logo {
+      height: 40px; /* Adjust logo sizes */
+    }
+  }
+  
